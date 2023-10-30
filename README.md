@@ -1,8 +1,10 @@
-# dlc-capsule-template
-Base CodeOcean capsule template with a working install of [`DeepLabCut`](https://github.com/DeepLabCut/DeepLabCut).
+# dlc-side-tracking-capsule
 
-- `DeepLabCut==2.3.6` plus all required dependencies
-- tries to update to the latest version of DeepLabCut: you may wish to disable this by deleting `/environment/postInstall` 
+Port of the lim2 side-tracking pipline, using a trained deeplabcut model to ascribe annotated points to each frame in a new video. 
+
+## model 
+
+original model location: `/allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/dlc-models/iteration-0/np3_side_camMar31-trainset95shuffle1`
 
 ---
 
