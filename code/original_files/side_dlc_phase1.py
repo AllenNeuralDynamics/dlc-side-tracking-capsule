@@ -1,17 +1,14 @@
 #import tensorflow as tf
 import os
+
 os.environ["DLClight"]="True"
-import deeplabcut
 import sys
 
-##cat $PBS_GPUFILE
-##CUDADEV=$(cat $PBS_GPUFILE | rev | cut -d"u" -f1)
-#cudadev=os.system("cat $PBS_GPUFILE | rev | cut -d\"u\" -f1")
-cudadev=os.system("echo $SLURM_STEP_GPUS")
-os.environ['CUDA_VISIBLE_DEVICES'] = str(cudadev)
-print(cudadev)
-#os.environ['CUDA_VISIBLE_DEVICES'] = "0"
+import deeplabcut
 
+def main():
+if __name__ == "__main__":
+    main()
 video_file_path = sys.argv[1]
 output_file_path = sys.argv[2]
 #output_file = video_file_path[:-4] + 'DeepCut_resnet50_universal_eye_trackingApr25shuffle1_969000.h5'

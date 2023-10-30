@@ -6,6 +6,10 @@ Port of the lim2 side-tracking pipline, using a trained deeplabcut model to ascr
 
 original model location: `/allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/dlc-models/iteration-0/np3_side_camMar31-trainset95shuffle1`
 
+model data asset: [`np3_side_cam-sam_corbett-2020-03-31`](https://codeocean.allenneuraldynamics.org/data-assets/112d69a3-604d-4066-8171-8af8eaa14150/np3_side_cam-sam_corbett-2020-03-31)
+- ID: `112d69a3-604d-4066-8171-8af8eaa14150`
+
+
 ---
 
 Developing a capsule in codoecean is a lot like developing in a local git repository: 
