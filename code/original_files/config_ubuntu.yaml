@@ -1,0 +1,118 @@
+# Project definitions (do not edit)
+Task: np3_side_cam
+scorer: sam_corbett
+date: Mar31
+
+# Project path (change when moving around)
+project_path: /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31
+
+# Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/Side_2020T134546.avi:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/Side_2020T173733.avi:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/sideshort_1.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/sideshort_3.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/sideshort_4.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/sideshort_2.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/np3_side_cam-sam_corbett-2020-03-31/videos/sideshort_5.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1068634916_544835_20201207.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1074924498_548464_20210106.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1077668911_548717_20210120.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1076416713_548715_20210114.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1070298648_546507_20201214.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1068631849_548465_20201207.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1070295398_540536_20201214.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1077854992_546508_20210121.behavior.mp4:
+    crop: 0, 658, 0, 492
+  /allen/aibs/technology/waynew/eye/dlc_behavior/new_side_videos/1072123554_545996_20201221.behavior.mp4:
+    crop: 0, 658, 0, 492
+bodyparts:
+- eye_top_l
+- eye_bottom_l
+- pupil_left_l
+- pupil_right_l
+- pupil_top_l
+- pupil_bottom_l
+- whisker_pad_l
+- tube_bottom
+- tongue_end_l
+- tube_top
+- tongue_end_r
+- chin_l
+- pinky_l
+- ring_finger_l
+- middle_finger_l
+- pointer_finger_l
+- pinky_lh
+- ring_finger_lh
+- middle_finger_lh
+- pointer_finger_lh
+- ear_tip_l
+- whisker_pad_r
+- chin_r
+- pinky_r
+- ring_finger_r
+- middle_finger_r
+- pointer_finger_r
+- pinky_rh
+- ring_finger_rh
+- middle_finger_rh
+- pointer_finger_rh
+- ear_tip_r
+- nostril_l
+- nostril_r
+- nose_tip
+- tail_tip
+start: 0
+stop: 1
+numframes2pick: 20
+
+# Plotting configuration
+skeleton:
+- - pinky_l
+  - ring_finger_l
+  - middle_finger_l
+  - pointer_finger_l
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 6
+alphavalue: 0.7
+colormap: prism
+
+# Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+resnet:
+snapshotindex: -1
+batch_size: 8
+
+# Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+#if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+# Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+default_net_type: resnet_101
+default_augmenter: imgaug
