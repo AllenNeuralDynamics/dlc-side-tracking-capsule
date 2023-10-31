@@ -1,5 +1,6 @@
 metadata_version: 1
-name: dlc-capsule-template
-description: Base CodeOcean capsule template with a working install of `DeepLabCut`.
+name: dlc-side-tracking-capsule
+description: Port of the lims2 side-tracking pipeline - outputs annotated points for
+  various head and body parts visible from a lateral view.
 authors:
 - name: Ben Hardcastle
