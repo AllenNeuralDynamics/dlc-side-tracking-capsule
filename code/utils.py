@@ -92,3 +92,22 @@ def get_dlc_pickle_metadata(dlc_output_h5_path: str | pathlib.Path) -> dict:
         .with_suffix('.pickle')
     )
     return pickle.loads(pkl.read_bytes())['data']
+
+def get_dlc_df(dlc_output_h5_path: str | pathlib.Path) -> pd.DataFrame:
+    # df has MultiIndex 
+    return getattr(pd.read_hdf(dlc_output_h5_path), get_dlc_pickle_metadata(dlc_output_h5_path)['Scorer']) 
+
+def get_dlc_output_h5_path(
+    input_video_file_path: str | pathlib.Path, 
+    output_dir_path: str | pathlib.Path = RESULTS_PATH,
+) -> pathlib.Path:
+    output = next(
+        pathlib.Path(output_dir_path)
+        .rglob(
+            glob := f"{pathlib.Path(input_video_file_path).stem}*.h5"
+        ),
+        None
+    )
+    if output is None:
+        raise FileNotFoundError(f"No file matching {glob} in {output_dir_path}")
+    return output
