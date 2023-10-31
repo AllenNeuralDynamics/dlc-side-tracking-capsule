@@ -7,8 +7,8 @@ import functools
 import itertools
 import pathlib
 import pickle
-from typing import (Dict, Iterable, Iterator, Literal, Mapping,
-                    NamedTuple, Sequence, Tuple)
+from typing import (Dict, Iterable, Iterator, Literal, Mapping, NamedTuple,
+                    Sequence, Tuple)
 
 import cv2
 import numpy as np
@@ -67,6 +67,7 @@ Annotation: TypeAlias = Literal['x', 'y', 'likelihood']
 AnnotationData: TypeAlias = Dict[Tuple[BodyPart, Annotation], float]
 
 ANNOTATION_PROPERTIES: tuple[Annotation, ...] = ('x', 'y', 'likelihood')
+DLC_LABELS = tuple(BodyPart.__args__)
 
 VIDEO_FILE_GLOB_PATTERNS = ('*[sS]ide*', '*[bB]ehavior*')
 
@@ -111,3 +112,25 @@ def get_dlc_output_h5_path(
     if output is None:
         raise FileNotFoundError(f"No file matching {glob} in {output_dir_path}")
     return output
+
+
+def get_video_data(video_path: str | pathlib.Path | cv2.VideoCapture) -> cv2.VideoCapture:
+    """Open video file as cv2.VideoCapture object."""
+    if isinstance(video_path, cv2.VideoCapture):
+        return video_path
+    return cv2.VideoCapture(str(video_path))
+
+def get_video_frame_count(video_path_or_data: str | pathlib.Path | cv2.VideoCapture) -> int:
+    return int(get_video_data(video_path_or_data).get(cv2.CAP_PROP_FRAME_COUNT))
+
+@functools.cache
+def get_video_frame_size_xy(video_path_or_data: str | pathlib.Path | cv2.VideoCapture) -> Tuple[int, int]:
+    return get_video_data(video_path_or_data).read()[1][:,:,0].shape.T
+
+def is_in_frame(x: float, y: float, video_path_or_data: str | pathlib.Path | cv2.VideoCapture) -> bool:
+    """Check if point is inside video frame."""
+    w, h = get_video_frame_size_xy(video_path_or_data)
+    return (0 <= x < w) and (0 <= y < h)
+
+def get_values_from_row(row: AnnotationData, annotation: Annotation, body_part: BodyPart) -> np.array:
+    return np.array([v for k, v in row.items() if k[1] == annotation and body_part in k[0]])
