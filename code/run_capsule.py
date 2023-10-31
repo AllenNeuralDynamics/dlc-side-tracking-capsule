@@ -8,7 +8,6 @@ os.environ["DLClight"]="True" # set before importing DLC
 import deeplabcut
 import numpy as np
 import pandas as pd
-import qc
 import tensorflow as tf
 import utils
 

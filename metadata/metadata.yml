@@ -3,4 +3,7 @@ name: dlc-side-tracking-capsule
 description: Port of the lims2 side-tracking pipeline - outputs annotated points for
   various head and body parts visible from a lateral view.
 authors:
+- name: Various contributors
+- name: Wayne Wakeman
+- name: Peter Lonnerberg
 - name: Ben Hardcastle
