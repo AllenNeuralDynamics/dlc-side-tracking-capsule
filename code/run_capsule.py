@@ -52,6 +52,7 @@ def main():
         videos=[
           input_video_file_path.as_posix(),
         ],
+        gputouse=0,
         destfolder=utils.RESULTS_PATH.as_posix(),
     )
     dlc_output_h5_path = utils.get_dlc_output_h5_path(
