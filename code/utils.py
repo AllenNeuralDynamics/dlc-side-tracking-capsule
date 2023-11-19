@@ -16,8 +16,8 @@ import pandas as pd
 import tqdm
 from typing_extensions import TypeAlias
 
-DATA_PATH = pathlib.Path('/root/capsule/data/')
-RESULTS_PATH = pathlib.Path('/root/capsule/results/')
+DATA_PATH = pathlib.Path('/data/')
+RESULTS_PATH = pathlib.Path('/results/')
 QC_PATH = RESULTS_PATH / "qc" 
 
 DLC_PROJECT_PATH = DATA_PATH / 'np3_side_cam-sam_corbett-2020-03-31'
